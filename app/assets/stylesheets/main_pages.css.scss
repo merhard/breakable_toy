@@ -1,3 +1,144 @@
 // Place all the styles related to the main_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.row{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 63em;
+}
+
+.row:before, .row:after {
+  content: "";
+  display: table;
+}
+
+.row-1 {
+  width: 8.333%;
+}
+
+.row-2 {
+  width: 16.667%;
+}
+
+.row-3 {
+  width: 25%;
+}
+
+.row-4 {
+  width: 33.333%;
+}
+
+.row-5 {
+  width: 41.667%;
+}
+
+.row-6 {
+  width: 50%;
+}
+
+.row-7 {
+  width: 58.333%;
+}
+
+.row-8 {
+  width: 66.667%;
+}
+
+.row-9 {
+  width: 75%;
+}
+
+.row-10 {
+  width: 83.333%;
+}
+.row-11 {
+  width: 91.667%;
+}
+
+.row-12 {
+  width: 100%;
+}
+
+[class*="columns"]:last-child {
+  float: right;
+}
+
+.columns {
+  padding-left: 1em;
+  padding-right: 1em;
+  float: left;
+}
+
+.whole-page {
+  min-height:100%;
+  position:relative;
+}
+
+.border {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  height: 20em;
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.border-bar {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  height: 4em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  ul {
+    display: inline;
+    padding-left: 0;
+    li {
+      padding-left: 1em;
+      padding-top: 1em;
+      display: inline-block;
+    }
+  }
+}
+
+.head {
+  width: 100%;
+  .border-bar {
+    margin-top: 0;
+  }
+}
+
+.content {
+  padding-bottom:5em;
+}
+
+#foot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
+  .border-bar {
+    margin: 0;
+  }
+}
