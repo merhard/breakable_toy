@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Sport do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'requires a sport name' do
+    Sport.create(name: 'Tennis')
+    Sport.create()
+    expect(Sport.last.name).to eq('Tennis')
+  end
 end
