@@ -20,4 +20,14 @@ describe 'visiting the root page' do
     expect(page).to have_content('Sport1')
     expect(page).to have_content('Sport2')
   end
+
+  it 'has search link' do
+    visit '/'
+    expect(page).to have_selector('a', text: 'Search')
+  end
+
+  it 'has add a court link' do
+    visit '/'
+    expect(page).to have_selector('a', text: 'Add a Court')
+  end
 end
