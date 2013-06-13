@@ -1,10 +1,12 @@
 <div class='row content'>
   <div class='row-6 columns'>
     <div class='border'>
-      <p>List of sports</p>
-      <% @sports.each do |sport| %>
-        <p><%= sport.name %></p>
-      <% end %>
+      <ul>
+        <li>List of sports</li>
+        <% @sports.each do |sport| %>
+          <li><%= link_to sport.name, root_path %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 
