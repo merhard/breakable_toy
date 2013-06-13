@@ -7,13 +7,11 @@ describe 'visiting the search page' do
   end
 
   it 'shows list of sports to search by' do
-    FactoryGirl.create(:sport, name: 'Sport1')
-    FactoryGirl.create(:sport, name: 'Sport2')
+    sport = FactoryGirl.create(:sport)
 
     visit '/search'
 
-    expect(page).to have_content('Sport1')
-    expect(page).to have_content('Sport2')
+    expect(page).to have_content(sport.name)
   end
 
 

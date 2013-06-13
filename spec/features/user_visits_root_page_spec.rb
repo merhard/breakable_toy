@@ -12,13 +12,11 @@ describe 'visiting the root page' do
   end
 
   it 'shows list of sports site supports' do
-    FactoryGirl.create(:sport, name: 'Sport1')
-    FactoryGirl.create(:sport, name: 'Sport2')
+    sport = FactoryGirl.create(:sport)
 
     visit '/'
 
-    expect(page).to have_content('Sport1')
-    expect(page).to have_content('Sport2')
+    expect(page).to have_content(sport.name)
   end
 
   it 'has search link' do
