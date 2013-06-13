@@ -28,8 +28,12 @@ body {
 }
 
 .row:before, .row:after {
-  content: "";
+  content: " ";
   display: table;
+}
+
+.row:after {
+  clear: both;
 }
 
 .row-1 {
