@@ -5,5 +5,6 @@ class SportsController < ApplicationController
 
   def show
     @sport = Sport.find(params[:id])
+    @courts = @sport.courts
   end
 end

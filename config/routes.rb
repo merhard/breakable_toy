@@ -2,7 +2,9 @@ Toy::Application.routes.draw do
 
   root :to => "main_pages#home"
 
-  resources :sports, only: [:index, :show], path: '/search'
+  resources :sports, only: [:index, :show], path: '/search' do
+    resources :courts
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

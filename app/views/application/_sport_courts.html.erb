@@ -1,0 +1,18 @@
+<% @courts.each do |court| %>
+  <table>
+    <tr>
+      <th>Courts</th>
+    </tr>
+    <% location = court.location %>
+    <tr>
+      <td>
+        <%= "#{location.street_address}, #{location.city}, #{location.state} #{location.zip}" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= "Number of courts: #{court.number_of}" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
