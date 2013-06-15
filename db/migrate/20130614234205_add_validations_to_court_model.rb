@@ -9,6 +9,5 @@ class AddValidationsToCourtModel < ActiveRecord::Migration
     change_column :courts, :number_of, :integer, null: true
     change_column :courts, :sport_id, :integer, null: true
     change_column :courts, :location_id, :integer, null: true
-
   end
 end
