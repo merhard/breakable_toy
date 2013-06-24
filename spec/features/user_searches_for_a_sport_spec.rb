@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'searching for a sport' do
-  let(:sport_with_courts) do
+  let!(:sport_with_courts) do
     court = FactoryGirl.build(:court)
     court.location = FactoryGirl.create(:location)
     court.sport = FactoryGirl.create(:sport)

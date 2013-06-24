@@ -1,9 +1,8 @@
-<% @courts.each do |court| %>
+<% @court_locations.each do |court,location| %>
   <table>
     <tr>
       <th>Courts</th>
     </tr>
-    <% location = court.location %>
     <tr>
       <td>
         <%= "#{location.street_address}, #{location.city}, #{location.state} #{location.zip}" %>

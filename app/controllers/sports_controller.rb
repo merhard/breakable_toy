@@ -6,5 +6,9 @@ class SportsController < ApplicationController
   def show
     @sport = Sport.find(params[:id])
     @courts = @sport.courts
+    @court_locations = {}
+    @courts.each do |court|
+      @court_locations[court] = court.location
+    end
   end
 end
