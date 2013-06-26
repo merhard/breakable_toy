@@ -1,12 +1,15 @@
 <%= search_form_for @q, url: search_path do |f| %>
   <p>
-    <%= f.label :location_city_cont %>
-    <%= f.text_field :location_city_cont %>
+    <%= f.label :location_city_start %>
+    <%= f.text_field :location_city_start %>
+
+    <%= f.collection_select(:sport_id_eq, Sport.all, "id", "name", { include_blank: 'All Sports' }) %>
+
     <%= f.submit "Search" %>
   </p>
 <% end %>
 
-<table>
+<table class='search-results'>
   <% @courts.each do |court| %>
     <tr>
       <td><%= court.sport.name %></td>
