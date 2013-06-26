@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :sport do
-    name "MyString"
+    sequence (:name) { |n| "Spo#{n}rt Name" }
   end
 end

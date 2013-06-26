@@ -1,0 +1,19 @@
+<%= search_form_for @q, url: search_path do |f| %>
+  <p>
+    <%= f.label :location_city_cont %>
+    <%= f.text_field :location_city_cont %>
+    <%= f.submit "Search" %>
+  </p>
+<% end %>
+
+<table>
+  <% @courts.each do |court| %>
+    <tr>
+      <td><%= court.sport.name %></td>
+      <td><%= court.number_of.to_s %></td>
+      <td><%= court.location.street_address %></td>
+      <td><%= court.location.city %></td>
+      <td><%= court.location.state %></td>
+    </tr>
+  <% end %>
+</table>

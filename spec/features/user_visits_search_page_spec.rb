@@ -17,7 +17,7 @@ describe 'visiting the search page' do
   end
 
   it 'links to the sports search page' do
-    click_on 'MyString'
+    click_on sport.name
     expect(current_path).to eq(sport_path(sport))
   end
 
