@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'visiting the search page' do
   let!(:sport) { FactoryGirl.create(:sport) }
-  before(:each) { visit '/search' }
+  before(:each) { visit sports_path }
 
   it 'exists' do
     expect(page.status_code).to eq(200)

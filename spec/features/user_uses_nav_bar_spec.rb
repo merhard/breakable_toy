@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'using the nav-bar' do
 
-  before(:each) { visit '/' }
+  before(:each) { visit root_path }
 
   it 'has search link' do
     expect(page).to have_selector('a', text: 'Search')
@@ -14,7 +14,7 @@ describe 'using the nav-bar' do
 
   it 'links to search page' do
     click_on 'Search'
-    expect(current_path).to eq('/search')
+    expect(current_path).to eq(search_path)
   end
 
 
