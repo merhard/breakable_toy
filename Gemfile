@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
-gem 'ransack'
+gem 'ransack', git: 'git://github.com/merhard/ransack.git'
 
 group :development, :test do
   gem 'pry-rails'

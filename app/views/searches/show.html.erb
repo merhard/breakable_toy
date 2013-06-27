@@ -1,4 +1,4 @@
-<%= search_form_for @q, url: search_path do |f| %>
+<%= search_form_for @q, url: search_path, :id => "results_search" do |f| %>
   <div>
     <%= f.label :location_city_start %>
     <%= f.text_field :location_city_start %>
@@ -13,22 +13,4 @@
   </div>
 <% end %>
 
-<table class='search-results'>
-  <tr>
-    <th><%= sort_link @q, "sport_name", "Sport" %></th>
-    <th><%= sort_link @q, "number_of", "Number of Courts" %></th>
-    <th><%= sort_link @q, "location_street_address", "Address" %></th>
-    <th><%= sort_link @q, "location_city", "City" %></th>
-    <th><%= sort_link @q, "location_state", "State" %></th>
-  </tr>
-
-  <% @courts.each do |court| %>
-    <tr>
-      <td><%= court.sport.name %></td>
-      <td><%= court.number_of.to_s %></td>
-      <td><%= court.location.street_address %></td>
-      <td><%= court.location.city %></td>
-      <td><%= court.location.state %></td>
-    </tr>
-  <% end %>
-</table>
+<div id='results'><%= render 'results' %></div>
