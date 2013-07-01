@@ -14,7 +14,7 @@ $(function() {
     return result;
   }
 
-  var sort_param = '';
+  var sort_param;
 
   $(document).on("click", "#results th a, #results .pagination a", function() {
     $.getScript(this.href);

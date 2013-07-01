@@ -9,6 +9,8 @@ gem 'pg'
 
 gem 'ransack', git: 'git://github.com/merhard/ransack.git'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
