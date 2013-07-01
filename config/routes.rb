@@ -2,7 +2,7 @@ Toy::Application.routes.draw do
 
   root to: "main_pages#home", via: [:get]
 
-  get "/search" => "main_pages#search"
+  resource :search
 
   resources :sports, only: [:index, :show] do
     resources :courts

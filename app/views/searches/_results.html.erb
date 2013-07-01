@@ -1,0 +1,20 @@
+<table class='search-results'>
+  <tr>
+    <th><%= sort_link @q, "sport_name", "Sport" %></th>
+    <th><%= sort_link @q, "number_of", "Number of Courts" %></th>
+    <th><%= sort_link @q, "location_street_address", "Address" %></th>
+    <th><%= sort_link @q, "location_city", "City" %></th>
+    <th><%= sort_link @q, "location_state", "State" %></th>
+  </tr>
+
+  <% @courts.each do |court| %>
+    <tr>
+      <td><%= court.sport.name %></td>
+      <td><%= court.number_of.to_s %></td>
+      <td><%= court.location.street_address %></td>
+      <td><%= court.location.city %></td>
+      <td><%= court.location.state %></td>
+    </tr>
+  <% end %>
+</table>
+<%= paginate @courts %>

@@ -1,0 +1,32 @@
+<div class='row content'>
+  <div class='row-5 columns'>
+    <div class='border'>
+      <%= search_form_for @q, url: search_path, :id => "results_search" do |f| %>
+        <div>
+          <%= f.label :location_city_start %>
+          <%= f.text_field :location_city_start %>
+        </div>
+
+        <div>
+          <%= f.collection_select(:sport_id_eq, Sport.all, "id", "name", { include_blank: 'All Sports' }) %>
+        </div>
+
+        <div>
+          <% f.submit "Search" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='row-7 columns'>
+    <div class='border'>
+      <p>Map</p>
+    </div>
+  </div>
+
+  <div class='row-12 columns'>
+    <div class='border'>
+      <div id='results'><%= render 'results' %></div>
+    </div>
+  </div>
+</div>
