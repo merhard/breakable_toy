@@ -7,7 +7,13 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
-gem 'devise'
+gem 'ransack', git: 'git://github.com/merhard/ransack.git'
+
+gem 'kaminari'
+
+group :development do
+  gem 'ffaker'
+end
 
 group :development, :test do
   gem 'pry-rails'

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :court do
-    number_of 1
-    location_id 1
-    sport_id 1
+    sequence (:number_of) { |n| "#{n}" }
+    association :location
+    association :sport
   end
 end

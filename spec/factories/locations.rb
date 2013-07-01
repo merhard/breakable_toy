@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :location do
-    street_address "MyString"
-    city "MyString"
-    state "MyString"
-    zip "MyString"
+    sequence (:street_address) { |n| "Stre#{n}et Ave" }
+    sequence (:city) { |n| "Ci#{n}ty" }
+    sequence (:state) { |n| "St#{n}ate" }
+    sequence (:zip) { |n| "Zi#{n}p" }
   end
 end
