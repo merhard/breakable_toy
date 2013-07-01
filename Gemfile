@@ -11,6 +11,10 @@ gem 'ransack', git: 'git://github.com/merhard/ransack.git'
 
 gem 'kaminari'
 
+group :development do
+  gem 'ffaker'
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
