@@ -1,0 +1,8 @@
+SHOW
+username
+location
+email
+sports => skill levels
+<% if @user == current_user %>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+<% end %>

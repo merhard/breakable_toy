@@ -2,6 +2,8 @@ Toy::Application.routes.draw do
 
   devise_for :users
 
+  resources :users, path: "profile", only: [:edit, :update, :show]
+
   root to: "home_pages#index", via: [:get]
 
   resource :search
