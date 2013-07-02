@@ -11,6 +11,8 @@ gem 'ransack', git: 'git://github.com/merhard/ransack.git'
 
 gem 'kaminari'
 
+gem 'devise'
+
 group :development do
   gem 'ffaker'
 end
