@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  before_create :create_username
+  before_create :create_username, :set_default_location
 
   def create_username
     email = self.email.split(/@/)
@@ -44,6 +44,11 @@ class User < ActiveRecord::Base
     end
     self.username = potential_username
     self.slug = potential_username
+  end
+
+  def set_default_location
+    default_location = Court.first.location.dup
+    self.location = default_location
   end
 
 end

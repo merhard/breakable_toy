@@ -15,6 +15,8 @@ gem 'devise'
 
 gem "friendly_id", "~> 4.0.9"
 
+gem 'geocoder'
+
 group :development do
   gem 'ffaker'
   gem 'better_errors'

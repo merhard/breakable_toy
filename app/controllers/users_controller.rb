@@ -4,12 +4,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @location = @user.location
   end
 
   def edit
+    @location = @user.location
   end
 
   def update
+    @location = @user.location
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
       sign_in @user

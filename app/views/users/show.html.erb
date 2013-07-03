@@ -1,12 +1,20 @@
 SHOW<br />
+
 Username:
 <%= @user.username %><br />
-Location:
-<%=  %><br />
-Email:
-<%= @user.email %><br />
-Sports => skill levels:
-<%=  %><br />
+
 <% if @user == current_user %>
   <%= link_to "Edit Profile", edit_user_path(@user) %>
-<% end %>
+<% end %><br />
+
+
+Location:
+<%= @location.address_from_components %><br />
+
+
+Sports => skill levels:
+<%=  %><br />
+
+
+Email:
+<%= @user.email %>
