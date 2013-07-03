@@ -30,4 +30,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  before_create :create_username
+
+  def create_username
+    email = self.email.split(/@/)
+    potential_username = email[0]
+    username_taken = User.where(username: potential_username).first
+    n = 0
+    while username_taken
+      potential_username = email[0] + "#{n}"
+      username_taken = User.where(username: potential_username).first
+      n += 1
+    end
+    self.username = potential_username
+    self.slug = potential_username
+  end
+
 end
