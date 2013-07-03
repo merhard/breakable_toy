@@ -1,0 +1,24 @@
+SHOW<br />
+
+Username:
+<%= @user.username %><br />
+
+<% if @user == current_user %>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+<% end %><br />
+
+
+Location:
+<%= "#{@location.city}, #{@location.state}" %><br />
+
+<% if @user == current_user %>
+  <%= link_to "Change Location", edit_user_locations_path(@user) %>
+<% end %><br />
+
+
+Sports => skill levels:
+<%=  %><br />
+
+
+Email:
+<%= @user.email %>

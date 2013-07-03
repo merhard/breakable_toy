@@ -15,6 +15,10 @@
           <%= f.submit "Search" %>
         </div>
       <% end %>
+      <% if user_signed_in? %>
+        My Location:
+        <%= @location.address_from_components %>
+      <% end %>
     </div>
   </div>
 

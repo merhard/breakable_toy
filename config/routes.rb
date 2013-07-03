@@ -1,6 +1,12 @@
 Toy::Application.routes.draw do
 
-  root to: "main_pages#home", via: [:get]
+  devise_for :users
+
+  resources :users, path: "profile", only: [:edit, :update, :show] do
+    resource :locations, only: [:edit, :update]
+  end
+
+  root to: "home_pages#index", via: [:get]
 
   resource :search
 
