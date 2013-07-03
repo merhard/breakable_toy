@@ -6,8 +6,11 @@ class SearchesController < ApplicationController
       @courts = Court.page(params[:page]).per(5)
     else
       @q = Court.limit(200).search(params[:q])
-      court_results = @q.result(distinct: true)
+      court_results = @q.result.all.uniq
       @courts = Kaminari.paginate_array(court_results).page(params[:page]).per(5)
+    end
+    if user_signed_in?
+      @location = current_user.location
     end
   end
 end

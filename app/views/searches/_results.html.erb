@@ -5,6 +5,9 @@
     <th><%= sort_link @q, "location_street_address", "Address" %></th>
     <th><%= sort_link @q, "location_city", "City" %></th>
     <th><%= sort_link @q, "location_state", "State" %></th>
+    <% if user_signed_in? %>
+      <th>Distance</th>
+    <% end %>
   </tr>
 
   <% @courts.each do |court| %>
@@ -14,6 +17,9 @@
       <td><%= court.location.street_address %></td>
       <td><%= court.location.city %></td>
       <td><%= court.location.state %></td>
+      <% if user_signed_in? %>
+        <td><%= @location.distance_to(court.location).round(2) %> miles</td>
+      <% end %>
     </tr>
   <% end %>
 </table>
