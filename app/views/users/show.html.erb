@@ -9,7 +9,11 @@ Username:
 
 
 Location:
-<%= @location.address_from_components %><br />
+<%= "#{@location.city}, #{@location.state}" %><br />
+
+<% if @user == current_user %>
+  <%= link_to "Change Location", edit_user_locations_path(@user) %>
+<% end %><br />
 
 
 Sports => skill levels:

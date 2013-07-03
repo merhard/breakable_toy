@@ -8,7 +8,7 @@ class Location < ActiveRecord::Base
 
   geocoded_by :address_from_components
 
-  after_validation :geocode, if: :has_location?, unless: :has_coordinates?
+  after_validation :geocode, if: :has_location?
 
   def address_from_components
     "#{self.street_address}, #{self.city}, #{self.state}"
