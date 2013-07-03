@@ -7,11 +7,15 @@
 
   <div class='row-4 columns'>
     <div class='border'>
-      <p>Register</p>
+      <% if user_signed_in? %>
+        <%= link_to "View Profile", @user %>
+      <% else %>
+        <%= render "devise/registrations/new_sign_up_form" %>
+      <% end %>
     </div>
   </div>
 
-  <div class='row-6 columns'>
+  <div class='row-5 columns'>
     <div class='border'>
       <p>List of sports</p>
       <% @sports.each do |sport| %>
@@ -20,7 +24,7 @@
     </div>
   </div>
 
-  <div class='row-6 columns'>
+  <div class='row-7 columns'>
     <div class='border'>
       <p>Map</p>
     </div>

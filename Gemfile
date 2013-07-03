@@ -7,12 +7,21 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
-gem 'ransack', git: 'git://github.com/merhard/ransack.git'
+gem 'ransack'
 
 gem 'kaminari'
 
+gem 'devise'
+
+gem "friendly_id", "~> 4.0.9"
+
+gem 'geocoder'
+
 group :development do
   gem 'ffaker'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :development, :test do
