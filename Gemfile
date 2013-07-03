@@ -13,8 +13,12 @@ gem 'kaminari'
 
 gem 'devise'
 
+gem "friendly_id", "~> 4.0.9"
+
 group :development do
   gem 'ffaker'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do

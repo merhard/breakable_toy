@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
   has_many :sports_skill_levels
   has_many :skill_levels, through: :sports_skill_levels
@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
