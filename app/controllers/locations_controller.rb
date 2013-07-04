@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
 
   def edit
     @location = @user.location
+    @json = @location.to_gmaps4rails
   end
 
   def update

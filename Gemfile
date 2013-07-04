@@ -17,6 +17,8 @@ gem "friendly_id", "~> 4.0.9"
 
 gem 'geocoder'
 
+gem 'gmaps4rails'
+
 group :development do
   gem 'ffaker'
   gem 'better_errors'
