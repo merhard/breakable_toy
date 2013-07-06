@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @location = @user.location
+    @json = @location.to_gmaps4rails
   end
 
   def edit

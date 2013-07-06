@@ -17,14 +17,14 @@
       <% end %>
       <% if user_signed_in? %>
         My Location:
-        <%= @location.address_from_components %>
+        <%= @location.gmaps4rails_address %>
       <% end %>
     </div>
   </div>
 
   <div class='row-7 columns'>
-    <div class='border'>
-      <p>Map</p>
+    <div class='border' id='map-div'>
+      <%= gmaps4rails(@json) %>
     </div>
   </div>
 

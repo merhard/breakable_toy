@@ -1,24 +1,36 @@
-SHOW<br />
+<div class='row content'>
+  <div class='row-5 columns'>
+    <div class='border'>
+      SHOW<br />
 
-Username:
-<%= @user.username %><br />
+      Username:
+      <%= @user.username %><br />
 
-<% if @user == current_user %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
-<% end %><br />
-
-
-Location:
-<%= "#{@location.city}, #{@location.state}" %><br />
-
-<% if @user == current_user %>
-  <%= link_to "Change Location", edit_user_locations_path(@user) %>
-<% end %><br />
+      <% if @user == current_user %>
+        <%= link_to "Edit Profile", edit_user_path(@user) %>
+      <% end %><br />
 
 
-Sports => skill levels:
-<%=  %><br />
+      Location:
+      <%= "#{@location.city}, #{@location.state}" %><br />
+
+      <% if @user == current_user %>
+        <%= link_to "Change Location", edit_user_locations_path(@user) %>
+      <% end %><br />
 
 
-Email:
-<%= @user.email %>
+      Sports => skill levels:
+      <%=  %><br />
+
+
+      Email:
+      <%= @user.email %>
+    </div>
+  </div>
+
+  <div class='row-7 columns'>
+    <div class='border'>
+      <%= gmaps4rails(@json) %>
+    </div>
+  </div>
+</div>

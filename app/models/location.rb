@@ -6,11 +6,13 @@ class Location < ActiveRecord::Base
   validates_presence_of :city
   validates_presence_of :state
 
-  geocoded_by :address_from_components
+  geocoded_by :gmaps4rails_address
 
   after_validation :geocode, if: :has_location?
 
-  def address_from_components
+  acts_as_gmappable
+
+  def gmaps4rails_address
     "#{self.street_address}, #{self.city}, #{self.state}"
   end
 
