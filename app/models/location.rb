@@ -10,7 +10,7 @@ class Location < ActiveRecord::Base
 
   after_validation :geocode, if: :has_location?
 
-  acts_as_gmappable
+  acts_as_gmappable process_geocoding: false
 
   def gmaps4rails_address
     "#{self.street_address}, #{self.city}, #{self.state}"
