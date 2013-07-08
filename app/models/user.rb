@@ -40,8 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def set_default_location
-    default_location = Court.first.location.dup
-    self.location = default_location
+    self.location = Location.create(street_address: '?', city: '?', state: '?')
   end
 
 end

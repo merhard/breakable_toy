@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:show, :edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
+  before_filter :default_location_edit, only: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -32,5 +33,17 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to root_path, notice: "Access denied." unless current_user == @user
+    end
+
+    def default_location_edit
+      location = current_user.location
+      if location.state == '?'
+        result = request.location
+        location.street_address = result.address unless result.address == ''
+        location.city = result.city unless result.city == ''
+        location.state = result.state unless result.state == ''
+        binding.pry
+        location.save
+      end
     end
 end
