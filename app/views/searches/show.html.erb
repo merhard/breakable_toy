@@ -11,6 +11,13 @@
           <%= f.collection_select(:sport_id_eq, Sport.all, "id", "name", { include_blank: 'All Sports' }) %>
         </div>
 
+        <% if user_signed_in? %>
+          <div>
+            <%= label_tag :within %>
+            <%= text_field_tag :within, params[:within] %> miles
+          </div>
+        <% end %>
+
         <div id='buttonId'>
           <%= f.submit "Search" %>
         </div>
