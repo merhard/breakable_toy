@@ -42,7 +42,6 @@ class UsersController < ApplicationController
         location.street_address = result.address unless result.address == ''
         location.city = result.city unless result.city == ''
         location.state = result.state unless result.state == ''
-        binding.pry
         location.save
       end
     end
