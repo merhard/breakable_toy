@@ -1,6 +1,6 @@
 Toy::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :users, path: "profile", only: [:edit, :update, :show] do
     resource :locations, only: [:edit, :update]
