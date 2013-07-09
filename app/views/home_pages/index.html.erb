@@ -29,10 +29,12 @@
 <div class='row'>
   <div class='large-5 columns'>
     <h3>List of Sports with Courts</h3>
-    <ul class='disc'>
-      <%- @sports.each do |sport| -%>
-        <li><%= sport.name %></li>
-      <%- end -%>
+    <ul>
+      <li><ul class='disc'>
+        <%- @sports.each do |sport| -%>
+          <li><%= sport.name %></li>
+        <%- end -%>
+      </ul></li>
     </ul>
   </div>
 

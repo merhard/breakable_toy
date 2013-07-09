@@ -1,17 +1,29 @@
 <%= form_for @location, url: user_locations_path do |f| %>
-  <div class="field">
-    <%= f.label :street_address, "Address" %><br />
-    <%= f.text_field :street_address %>
+  <div class="row">
+    <div class='large-3 columns'>
+      <%= f.label :street_address, "Address", class: 'inline' %>
+    </div>
+    <div class='large-9 columns'>
+      <%= f.text_field :street_address %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+  <div class="row">
+    <div class='large-3 columns'>
+      <%= f.label :city, class: 'inline' %>
+    </div>
+    <div class='large-9 columns'>
+      <%= f.text_field :city %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
+  <div class="row">
+    <div class='large-3 columns'>
+      <%= f.label :state, class: 'inline' %>
+    </div>
+    <div class='large-9 columns'>
+      <%= f.text_field :state %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update Location", class: 'button success' %>
   </div>
-<% end %>
+<%- end -%>
