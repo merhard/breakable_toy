@@ -1,36 +1,27 @@
-<div class='row content'>
-  <div class='row-5 columns'>
-    <div class='border'>
-      SHOW<br />
+<div class='row'>
+  <div class='large-5 columns'>
+    <fieldset>
+      <ul>
+        <li><strong><%= "Username: " + @user.username %></strong></li>
+        <li class="street-address"><%= @location.street_address %></li>
+        <li>
+          <span class='locality'><%= @location.city + "," %></span>
+          <span class='state'><%= @location.state %></span>
+        </li>
+        <li class="email"><%= @user.email %></li>
+        <%- if @user == current_user -%>
+          <li><%= link_to "Edit Username", edit_user_path(@user) %></li>
+        <%- end -%>
 
-      Username:
-      <%= @user.username %><br />
-
-      <% if @user == current_user %>
-        <%= link_to "Edit Profile", edit_user_path(@user) %>
-      <% end %><br />
-
-
-      Location:
-      <%= "#{@location.city}, #{@location.state}" %><br />
-
-      <% if @user == current_user %>
-        <%= link_to "Change Location", edit_user_locations_path(@user) %>
-      <% end %><br />
-
-
-      Sports => skill levels:
-      <%=  %><br />
-
-
-      Email:
-      <%= @user.email %>
-    </div>
+        <%- if @user == current_user -%>
+          <li><%= link_to "Change Location", edit_user_locations_path(@user) %></li>
+        <%- end -%>
+      </ul>
+    </fieldset>
   </div>
 
-  <div class='row-7 columns'>
-    <div class='border'>
-      <%= gmaps4rails(@json) %>
-    </div>
+  <div class='large-7 columns'>
+    <%= gmaps4rails(@json) %>
   </div>
 </div>
+

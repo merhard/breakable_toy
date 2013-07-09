@@ -1,9 +1,13 @@
 <%= form_for(@user) do |f| %>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+  <div class='row'>
+    <div class='large-3 columns'>
+      <%= f.label :username, class: 'inline' %>
+    </div>
+    <div class='large-9 columns'>
+      <%= f.text_field :username %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update Username", class: 'button success' %>
   </div>
-<% end %>
+<%- end -%>

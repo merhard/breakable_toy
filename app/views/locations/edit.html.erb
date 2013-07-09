@@ -1,17 +1,13 @@
-<div class='row content'>
-  <div class='row-5 columns'>
-    <div class='border'>
-      EDIT
-
+<div class='row'>
+  <div class='large-5 columns'>
+    <fieldset>
+      <legend>Edit Location</legend>
       <%= render 'form' %>
 
-      <%= link_to 'Show', @user %>
-    </div>
+      <%= link_to 'Back to My Profile', @user, class: 'small button secondary' %>
+    </fieldset>
   </div>
-
-  <div class='row-7 columns'>
-    <div class='border'>
-      <%= gmaps4rails(@json) %>
-    </div>
+  <div class='large-7 columns'>
+    <%= gmaps4rails(@json) %>
   </div>
 </div>
