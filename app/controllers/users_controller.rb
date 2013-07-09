@@ -39,7 +39,6 @@ class UsersController < ApplicationController
       location = current_user.location
       if location.state == '?'
         result = request.location
-        location.street_address = result.address unless result.address == ''
         location.city = result.city unless result.city == ''
         location.state = result.state unless result.state == ''
         location.save
