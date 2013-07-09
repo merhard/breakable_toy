@@ -1,41 +1,42 @@
-<div class='row content'>
-  <% if user_signed_in? %>
-    <div class='row-12 columns'>
-      <div class='border'>
-        <p>Rotating Pics</p>
-      </div>
+<div class='row'>
+  <%- if user_signed_in? -%>
+    <div class='large-12 columns'>
+      <ul data-orbit>
+        <li><img src="http://placehold.it/1000x400&text=[ img 1 ]" /></li>
+        <li><img src="http://placehold.it/1000x400&text=[ img 2 ]" /></li>
+        <li><img src="http://placehold.it/1000x400&text=[ img 3 ]" /></li>
+        <li><img src="http://placehold.it/1000x400&text=[ img 4 ]" /></li>
+      </ul>
     </div>
 
-  <% else %>
-    <div class='row-8 columns'>
-      <div class='border'>
-        <p>Rotating Pics</p>
-      </div>
+  <%- else -%>
+    <div class='large-7 columns'>
+      <ul data-orbit>
+        <li><img src="http://placehold.it/750x400&text=[ img 1 ]" /></li>
+        <li><img src="http://placehold.it/750x400&text=[ img 2 ]" /></li>
+        <li><img src="http://placehold.it/750x400&text=[ img 3 ]" /></li>
+        <li><img src="http://placehold.it/750x400&text=[ img 4 ]" /></li>
+      </ul>
     </div>
 
-    <div class='row-4 columns'>
-      <div class='border'>
-        <% if user_signed_in? %>
-          <%= link_to "View Profile", @user %>
-        <% else %>
-          <%= render "devise/registrations/new_sign_up_form" %>
-        <% end %>
-      </div>
+    <div class='large-5 columns'>
+      <%= render "devise/registrations/new_sign_up_form" %>
     </div>
-  <% end %>
+  <%- end -%>
+  <hr/>
+</div>
 
-  <div class='row-5 columns'>
-    <div class='border'>
-      <p>List of sports</p>
-      <% @sports.each do |sport| %>
-        <p><%= sport.name %></p>
-      <% end %>
-    </div>
+<div class='row'>
+  <div class='large-5 columns'>
+    <h3>List of Sports with Courts</h3>
+    <ul class='disc'>
+      <%- @sports.each do |sport| -%>
+        <li><%= sport.name %></li>
+      <%- end -%>
+    </ul>
   </div>
 
-  <div class='row-7 columns'>
-    <div class='border'>
-      <%= gmaps4rails(@json) %>
-    </div>
+  <div class='large-7 columns'>
+    <%= gmaps4rails(@json) %>
   </div>
 </div>

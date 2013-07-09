@@ -1,12 +1,25 @@
-<div class='top-bar' data-options="is_hover:false">
+<div class='top-bar'>
   <ul class='title-area'>
     <li class='name'><h1><%= link_to "CourtSide", root_path %></h1></li>
+    <li class='toggle-topbar menu-icon'><a href='#'><span>Menu</span></a></li>
   </ul>
-  <div class='top-bar-section'>
+  <div class='top-bar-section active'>
+    <ul class='left'>
+      <li class="divider"></li>
+      <li><%= link_to "Search", search_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Add a Court", root_path %></li>
+      <li class="divider"></li>
+    </ul>
+
     <ul class='right'>
       <li class="divider"></li>
       <% if user_signed_in? %>
-        <li id="logout">
+        <li>
+          <%= link_to "My Profile", user_path(current_user) %>
+        </li>
+        <li class="divider"></li>
+        <li>
           <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
         </li>
       <% else %>
@@ -20,4 +33,5 @@
       <% end %>
       <li class="divider"></li>
     </ul>
+  </div>
 </div>
