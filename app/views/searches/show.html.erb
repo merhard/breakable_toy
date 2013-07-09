@@ -1,43 +1,55 @@
-<div class='row content'>
-  <div class='row-5 columns'>
-    <div class='border'>
+<div class='row'>
+  <div class='large-5 columns'>
+    <fieldset>
+      <legend>Search Fields</legend>
       <%= search_form_for @q, url: search_path, :id => "results_search" do |f| %>
-        <div>
-          <%= f.label :location_city_start %>
-          <%= f.text_field :location_city_start %>
-        </div>
 
-        <div>
-          <%= f.collection_select(:sport_id_eq, Sport.all, "id", "name", { include_blank: 'All Sports' }) %>
-        </div>
-
-        <% if user_signed_in? %>
-          <div>
-            <%= label_tag :within %>
-            <%= text_field_tag :within, params[:within] %> miles
+        <div class='row'>
+          <div class='large-7 columns'>
+            <%= f.collection_select(:sport_id_eq, Sport.all, "id", "name", { include_blank: 'All Sports' }) %>
           </div>
-        <% end %>
-
-        <div id='buttonId'>
-          <%= f.submit "Search" %>
         </div>
-      <% end %>
-      <% if user_signed_in? %>
-        My Location:
-        <%= @location.gmaps4rails_address %>
-      <% end %>
-    </div>
+
+        <div class='row'>
+          <div class='columns'>
+            <%= f.label :location_city_start %>
+            <%= f.text_field :location_city_start %>
+          </div>
+        </div>
+
+        <%- if user_signed_in? -%>
+          <div class='row'>
+            <div class='large-2 columns padding-fix'>
+              <%= label_tag :within, "Within", class: 'inline' %>
+            </div>
+            <div class='large-5 columns padding-fix'>
+              <%= text_field_tag :within, params[:within] %>
+            </div>
+            <div class='large-5 columns'>
+              <%= label_tag :within, "miles of:", class: 'inline' %>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='columns'>
+              <%= @location.gmaps4rails_address %>
+            </div>
+          </div>
+        <%- end -%>
+
+        <%= f.submit "Search", { class: 'button', id: 'buttonId' } %>
+
+      <%- end -%>
+    </fieldset>
   </div>
 
-  <div class='row-7 columns'>
-    <div class='border' id='map-div'>
-      <%= gmaps4rails(@json) %>
-    </div>
+  <div class='large-7 columns' id='map-div'>
+    <%= gmaps4rails(@json) %>
   </div>
+</div>
 
-  <div class='row-12 columns'>
-    <div class='border'>
-      <div id='results'><%= render 'results' %></div>
-    </div>
+<div class='row'>
+  <hr/>
+  <div class='large-12' id='results'>
+    <%= render 'results' %>
   </div>
 </div>
