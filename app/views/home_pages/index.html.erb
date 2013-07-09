@@ -1,19 +1,28 @@
 <div class='row content'>
-  <div class='row-8 columns'>
-    <div class='border'>
-      <p>Rotating Pics</p>
+  <% if user_signed_in? %>
+    <div class='row-12 columns'>
+      <div class='border'>
+        <p>Rotating Pics</p>
+      </div>
     </div>
-  </div>
 
-  <div class='row-4 columns'>
-    <div class='border'>
-      <% if user_signed_in? %>
-        <%= link_to "View Profile", @user %>
-      <% else %>
-        <%= render "devise/registrations/new_sign_up_form" %>
-      <% end %>
+  <% else %>
+    <div class='row-8 columns'>
+      <div class='border'>
+        <p>Rotating Pics</p>
+      </div>
     </div>
-  </div>
+
+    <div class='row-4 columns'>
+      <div class='border'>
+        <% if user_signed_in? %>
+          <%= link_to "View Profile", @user %>
+        <% else %>
+          <%= render "devise/registrations/new_sign_up_form" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
   <div class='row-5 columns'>
     <div class='border'>
