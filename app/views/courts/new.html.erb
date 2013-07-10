@@ -1,0 +1,48 @@
+<div class='row'>
+  <div class='large-5'>
+    <fieldset>
+      <legend>Add Court</legend>
+      <%= simple_form_for @court do |f| %>
+        <div class="row">
+          <div class='large-4 columns'>
+            <%= f.input :number_of %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class='large-7 columns'>
+            <%= f.association :sport %>
+          </div>
+        </div>
+
+        <%= f.simple_fields_for :location do |l| %>
+          <div class="row">
+            <div class='columns'>
+              <%= l.input :street_address %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class='columns'>
+              <%= l.input :city %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class='columns'>
+              <%= l.input :state %>
+            </div>
+          </div>
+        <%- end -%>
+
+        <div class="actions">
+          <%= f.button :submit %>
+        </div>
+      <%- end -%>
+    </fieldset>
+  </div>
+</div>
+
+
+
+
