@@ -16,9 +16,15 @@ $(function() {
 
   var sort_param;
 
-  $(document).on("click", "#results th a, #results .pagination a", function() {
+  $(document).on("click", "#results th a.sort_link, #results .pagination a", function() {
     $.getScript(this.href);
     sort_param = getURLParameters(this.href)['q%5Bs%5D'];
+    return false;
+  });
+
+  $(document).on("click", "#results th a.distance_link", function() {
+    $.getScript(this.href);
+    sort_param = undefined;
     return false;
   });
 

@@ -6,43 +6,37 @@ class SearchesController < ApplicationController
       @location = current_user.location
     end
 
-    if params[:q]
-
-      if params[:within] && params[:within] != ''
-
-        locations = Location.near(@location, params[:within])
-        locations_id_array = []
-        locations.each do |location|
-          locations_id_array << location.id
-        end
-
-        if params[:q][:s]
-          @q = Court.where(location_id: locations_id_array).limit(200).search(params[:q])
-          court_results = @q.result.all.uniq
-          @courts = Kaminari.paginate_array(court_results).page(params[:page]).per(5)
-        else
-          @q = Court.where(location_id: locations_id_array).search(params[:q])
-          @courts = @q.result(distinct: true).page(params[:page]).per(5)
-        end
-
-      else
-
-        if params[:q][:s]
-          @q = Court.limit(200).search(params[:q])
-          court_results = @q.result.all.uniq
-          @courts = Kaminari.paginate_array(court_results).page(params[:page]).per(5)
-        else
-          @q = Court.search(params[:q])
-          @courts = @q.result(distinct: true).page(params[:page]).per(5)
-        end
-
+    if params[:distance] && params[:q]
+      if params[:q][:s]
+        params[:q].except!(:s)
       end
+    end
 
+    if params[:q]
+      if params[:within] && params[:within] != ''
+        if params[:q][:s] == 'undefined'
+          params[:q].except!(:s)
+          @q = Court.near(@location, params[:within], order: :distance).search(params[:q])
+          @courts = @q.result(distinct: true).page(params[:page]).per(5)
+        else
+          @q = Court.joins(:location).near(@location, params[:within]).limit(200).search(params[:q])
+          court_results = @q.result.all.uniq
+          @courts = Kaminari.paginate_array(court_results).page(params[:page]).per(5)
+        end
+      else
+        if params[:q][:s] == 'undefined'
+          params[:q].except!(:s)
+          @q = Court.near(@location, 3000, order: :distance).search(params[:q])
+          @courts = @q.result(distinct: true).page(params[:page]).per(5)
+        else
+          @q = Court.joins(:location).near(@location, 3000).limit(200).search(params[:q])
+          court_results = @q.result.all.uniq
+          @courts = Kaminari.paginate_array(court_results).page(params[:page]).per(5)
+        end
+      end
     else
-
       @q = Court.search(params[:q])
-      @courts = Court.page(params[:page]).per(5)
-
+      @courts = Court.joins(:location).near(@location, 3000, order: :distance).page(params[:page]).per(5)
     end
 
     @locations = []
