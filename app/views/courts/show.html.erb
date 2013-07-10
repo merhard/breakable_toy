@@ -1,0 +1,23 @@
+<div class='row'>
+  <div class='large-5 columns'>
+    <fieldset>
+      <ul>
+        <li>Sport: <%= @sport.name %></li>
+        <li>Courts: <%= @court.number_of %></li>
+        <li>Location:
+          <ul>
+            <li><%= @location.street_address %></li>
+            <li>
+              <span><%= @location.city + "," %></span>
+              <span><%= @location.state %></span>
+            </li>
+            <li><%= "[#{@location.latitude}, #{@location.longitude}]" %></li>
+          </ul>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+  <div class='large-7 columns'>
+    <%= gmaps4rails(@json) %>
+  </div>
+</div>

@@ -9,6 +9,7 @@
       <% if user_signed_in? %>
         <th><%= link_to 'Distance', search_path(distance: 'sort-by-distance', q: params[:q], within: params[:within]), class: 'distance_link' %></th>
       <% end %>
+      <th></th>
     </tr>
   </thead>
 
@@ -27,6 +28,7 @@
             <td><%= @location.distance_to(court.location).round(2) %> miles</td>
           <% end %>
         <% end %>
+        <td><%= link_to 'Show', court_path(court) %></td>
       </tr>
     <% end %>
   </tbody>
