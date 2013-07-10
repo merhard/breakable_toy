@@ -22,8 +22,8 @@ class CourtsController < ApplicationController
     if @court.save
       redirect_to @court, notice: 'Court was successfully added.'
     else
-      flash[:error] = 'Court not added.'
-      render action: "new"
+      flash.now[:error] = 'Court not added.'
+      render 'new'
     end
   end
 end

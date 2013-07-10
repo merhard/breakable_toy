@@ -25,8 +25,16 @@
 
       <%= render 'shared/header' %>
       <div class='row'>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+
+        <%- flashes = {:notice => 'success', :alert => 'standard', :error => 'alert', :secondary => 'secondary'} -%>
+        <%- flashes.each do |key, value| -%>
+          <%- if flash[key] -%>
+            <div data-alert class="alert-box <%= value %>">
+              <%= flash[key] %>
+              <%= link_to '&times;'.html_safe, '#', class: 'close' %>
+            </div>
+          <%- end -%>
+        <%- end -%>
       </div>
 
       <%= yield %>
