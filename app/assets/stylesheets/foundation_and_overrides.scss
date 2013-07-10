@@ -1208,7 +1208,7 @@ $default-float: left;
 
 // Height and margin
 
-// $topbar-height: 45px;
+$topbar-height: 50px;
 // $topbar-margin-bottom: emCalc(30px);
 
 // Control Input height for top bar
@@ -1218,7 +1218,7 @@ $default-float: left;
 // Controlling the styles for the title in the top bar
 
 // $topbar-title-weight: bold;
-// $topbar-title-font-size: emCalc(17px);
+$topbar-title-font-size: emCalc(20px);
 
 // Style the top bar dropdown elements
 
@@ -1235,7 +1235,7 @@ $default-float: left;
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: bold;
-// $topbar-link-font-size: emCalc(13px);
+$topbar-link-font-size: emCalc(15px);
 // $topbar-link-hover-lightness: -30%; // Darken by 30%
 // $topbar-link-bg-hover: darken($topbar-bg, 3%);
 // $topbar-link-bg-active: darken($topbar-bg, 3%);

@@ -13,5 +13,4 @@ describe 'visiting the root page' do
     expect(page).to have_content(sport.name)
   end
 
-
 end

@@ -15,12 +15,6 @@ describe Location do
     expect(created_location).to be false
   end
 
-  it 'requires a zip' do
-    location.zip = nil
-    created_location = location.save
-    expect(created_location).to be false
-  end
-
   it 'requires a street address' do
     location.street_address = nil
     created_location = location.save
