@@ -1,4 +1,4 @@
-CourtSide
+# CourtSide
 
 
 Located at:
@@ -6,9 +6,7 @@ http://tranquil-bastion-5106.herokuapp.com/
 
 
 To demo the website as a user, please login with the following credentials:
-
 Username: demo
-
 Password: password
 
 
